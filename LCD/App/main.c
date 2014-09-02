@@ -27,7 +27,7 @@ int main(void)
 			
 		BSP_Init();
 	
-    //GUI_Text(0,0,"0123456789",10,0x0000,0xffff);
+    GUI_Text(0,0,"0123456789",10,0x0000,0xffff);
 		while(1)
 		{
 				LED(ON);

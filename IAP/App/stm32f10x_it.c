@@ -23,6 +23,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
+#include "includes.h"
 
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
@@ -157,5 +158,17 @@ void SysTick_Handler(void)
   * @}
   */ 
 
-
+void USART1_IRQHandler(void)                	//串口1中断服务程序
+{
+		uint8_t Val=0;
+	
+		Val = Val;
+		if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)  //接收中断(接收到的数据必须是0x0d 0x0a结尾)
+		{
+				CMD =USART_ReceiveData(USART1);//(USART1->DR);	//读取接收到的数据
+				
+				USART_SendData(USART1, (unsigned char) CMD);
+				while (!(USART1->SR & USART_FLAG_TXE));
+		} 
+} 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

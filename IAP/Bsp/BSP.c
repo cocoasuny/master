@@ -11,6 +11,8 @@ void BSP_Init(void)
     LED_GPIO_Config();    /* LED 端口初始化 */
     USART1_Config();
 		Delay_Init();
+	  ili9320_Initializtion();
+		ili9320_Clear(0xffff);   //清除屏幕显示
 }
 
 

@@ -9,6 +9,8 @@
 #include    "Usart.h"                   //´®¿ÚÇý¶¯º¯Êý
 #include    "SysTick.h"
 #include 		"platform.h"
+#include    "ili9320.h"
+#include    "main.h"
 
 #endif //__INCLUDES_H__
 

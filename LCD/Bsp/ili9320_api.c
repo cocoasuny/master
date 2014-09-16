@@ -1,5 +1,6 @@
 #include   "stm32f10x.h"
-#include "ili9320.h"
+#include   "ili9320.h"
+#include 	 <string.h>
 
 
 /****************************************************************************
@@ -45,11 +46,13 @@ u16 GUI_Color565(u32 RGB)
 * 说    明：
 * 调用方法：GUI_Text(0,0,"0123456789",10,0x0000,0xffff);
 ****************************************************************************/
-void GUI_Text(u16 x, u16 y, u8 *str, u16 len,u16 Color, u16 bkColor)
+void GUI_Text(u16 x, u16 y, char *str, u16 Color, u16 bkColor)
 {
   u8 i;
-  
-  for (i=0;i<len;i++)
+	uint8_t  Len;
+	
+  Len = strlen(str);
+  for (i=0;i<Len;i++)
   {
     ili9320_PutChar((x+8*i),y,*str++,Color,bkColor);
   }

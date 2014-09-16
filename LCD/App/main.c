@@ -21,13 +21,15 @@
 
 #include "includes.h"
 
+uint8_t  CMD=0;
   
 int main(void)
 {
 			
 		BSP_Init();
 	
-    GUI_Text(0,0,"0123456789",10,0x0000,0xffff);
+		printf("LCD Test\r\n");
+    GUI_Text(0,0,"AbcdEFG",White,Black);
 		while(1)
 		{
 				LED(ON);
